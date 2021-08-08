@@ -47,6 +47,12 @@ if __name__ == "__main__":
             if event.type == pygame.QUIT:
                 run = False
 
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    start = None
+                    end = None
+                    started = False
+                    grid = create_grid(ROWS, ROWS, node_width)
             if started:
                 continue
 
@@ -80,15 +86,12 @@ if __name__ == "__main__":
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE and start != None and end != None:
+                    started = True
                     for row in grid:
                         for node in row:
                             node.update_neighbours(grid)
                     run_algo(lambda: display_grid(WIN, grid), grid, start, end)
 
-                if event.key == pygame.K_r:
-                    start = None
-                    end = None
-                    grid = create_grid(ROWS, ROWS, node_width)
 
 
     pygame.quit()

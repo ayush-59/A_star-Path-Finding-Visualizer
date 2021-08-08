@@ -19,7 +19,7 @@ def choose_best_node(open_list):
     return best_node
 
 # Returns Path found using backtracking
-def get_path(start, goal, grid):
+def get_path(draw, start, goal, grid):
     path = []
     current = goal
     while True:
@@ -32,6 +32,8 @@ def get_path(start, goal, grid):
         if current == start:
             break
         current = current.get_prev()
+        draw()
+        pygame.display.update()
     return path
 
 
@@ -81,5 +83,5 @@ def run_algo(draw, grid, start, goal):
     if current['pos'] != goal.get_pos():
         print("No Valid Path")
     else:
-        path = get_path(start, goal, grid)
+        path = get_path(draw, start, goal, grid)
         print(path)

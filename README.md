@@ -1,5 +1,6 @@
 # A_star-Path-Finding-Visualizer
 Path Finding visualizer using A* search Algorithm using pygame
+It is a visualizing tool that shows how the A* algorithm finds the path.
 
 How To Use -
 
